@@ -1,0 +1,39 @@
+[
+        {
+            "id": "1",
+            "name": "kiwis",
+            "price": "1254",
+            "category" : "categoria_1",
+            "description": "KIWIS ENORMES",
+            "imageUrl" : "/images/kiwis.jpg",
+            "stock" : 5
+        },
+        {
+            "id": "2",
+            "name": "frutillas",
+            "price": "3500",
+            "category" : "categoria_2",
+            "description": "hermosas frutillas",
+            "imageUrl" : "/images/frutillas.jpg",
+            "stock" : 150
+        },
+        {
+            "id": "3",
+            "name": "manzanas",
+            "price": "2500",
+            "category" : "categoria_1",
+            "description": "verdes grandes y acidas",
+            "imageUrl" : "/images/manzanas.jpg",
+            "stock" : 110
+        },
+        {
+            "id": "4",
+            "name": "uvas",
+            "price": "5674",
+            "category" : "categoria_2",
+            "description": "Frutos de exportación",
+            "imageUrl" : "/images/uvas.jpg",
+            "stock" : 145
+        }
+    ]
+
