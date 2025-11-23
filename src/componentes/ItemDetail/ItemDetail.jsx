@@ -1,15 +1,25 @@
 
-import { BotonAddCarrito } from '../BotonAddCarrito/BotonAddCarrito';
+
 import './ItemDetail.css'
+//nuevo
+import { useCartContext } from "../../context/CartContext/UseCartContext";
+
+import { Count } from '../Count/Count'
 
 export const ItemDetail = ({ detail }) => {
-//    console.log(detail)
+    //    console.log(detail)
+    //nuevo
+    const { addItem } = useCartContext()
 
-  return (
-    <>
-     <h1 className="titulo">Detalles y reseñas de {detail.name}</h1>
-     <section className="productos2">
-      <div className="card2">
+    const handleAdd = (quantity) => {
+        addItem({ ...detail, quantity })
+    }
+
+    return (
+        <>
+            <h1 className="titulo">Detalles y reseñas de {detail.name}</h1>
+            <section className="productos2">
+                <div className="card2">
                     <div className="detalles">
                         <div className="top">
                             <img src={detail.imageUrl} alt="" />
@@ -19,12 +29,8 @@ export const ItemDetail = ({ detail }) => {
                         <div className="bottom">
                             <p className="precio">${detail.price} <button className="favorito"><i className="fa-solid fa-heart"></i></button></p>
                             <div className="agregar">
-                                <form action="">
-                                    <button className="restar"><i className="fa-solid fa-square-minus"></i></button>
-                                    <input type="number" name="cant" id="cant" min="0" />
-                                    <button className="sumar"><i className="fa-solid fa-square-plus"></i></button>
-                                </form>
-                                <BotonAddCarrito {...detail}/>
+                                {/* //nuevo */}
+                                <Count onConfirm={handleAdd} />
                             </div>
                         </div>
                     </div>
@@ -70,7 +76,7 @@ export const ItemDetail = ({ detail }) => {
                         </div>
                     </div>
                 </div>
-                </section>
-                </>
-  );
+            </section>
+        </>
+    );
 };

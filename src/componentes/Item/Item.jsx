@@ -1,11 +1,23 @@
-import { ItemDetail } from '../ItemDetail/ItemDetail'
-import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer'
+
 import { Link } from 'react-router-dom'
 import './Item.css'
-import { BotonAddCarrito } from '../BotonAddCarrito/BotonAddCarrito'
+
+//nuevo
+import { useCartContext } from "../../context/CartContext/UseCartContext";
+
+import { Count } from '../Count/Count'
+
 
 
 export const Item = ({ prod, children }) => {
+   
+//nuevo
+    const {addItem} = useCartContext()
+
+    const handleAdd = (quantity) => {   
+    addItem({...prod, quantity})
+      }
+
 
     return (
         <div className="card">
@@ -22,11 +34,10 @@ export const Item = ({ prod, children }) => {
                     <button className="favorito"><i className="fa-solid fa-heart"></i></button>
                 </div>
                 <div className="agregar">
-                    <div className="amount">
-                        <span className="descrpcion"> Cant </span>
-                        <input type="number" name="cant" id="cant" min="0" />
-                    </div>
-                    <BotonAddCarrito {...prod} />
+                  
+                    {/* //nuevo */}
+                    <Count onConfirm={handleAdd} />
+                   
                 </div>
             </div>
             {children}
