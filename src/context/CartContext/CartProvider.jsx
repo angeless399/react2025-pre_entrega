@@ -56,16 +56,24 @@ export const CartProvider = ({ children }) => {
     }
 
         //Calcular subTotales
-       const subtotal = (id) => {    
-        const  item = cart.find(c => c.id === id)
-        const subtotal = item.count * item.price
+       const subtotal = (id) => {   
+        const item = cart.find((p) => p.id === id)
+        const subtotal = item.quantity * item.price
         return Math.round(subtotal * 100) / 100 //redondea a 2 decimales
     }
 
+        const checkout = () => {
+        const ok = confirm("¿Serguro que quiere finalizar la compra?");
 
-    console.log(cart)
-    
-    const values = { cart, addItem, clearCart, getTotalItems, deleteItem, total, subtotal }
+        if (ok) {
+            alert("¡Compra realizada con éxito!");
+            clearCart();
+        }
+    }
+
+    // console.log(cart)
+
+    const values = { cart, addItem, clearCart, getTotalItems, deleteItem, total, subtotal, checkout }
 
     return <CartContext.Provider value={values}>{children}</CartContext.Provider>
 }
