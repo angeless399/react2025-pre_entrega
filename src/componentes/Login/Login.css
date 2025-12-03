@@ -30,10 +30,7 @@
 }
 
 /* Inputs / textarea */
-.product-form input[type="text"],
-.product-form input[type="number"],
-.product-form input[type="file"],
-.product-form textarea {
+.product-form input {
   width: 100%;
   padding: 0.6rem 0.75rem;
   border: 1px solid #444;
@@ -51,32 +48,19 @@
 
 /* Hover/focus */
 .product-form input[type="text"]:focus,
-.product-form input[type="number"]:focus,
-.product-form input[type="file"]:focus,
-.product-form textarea:focus {
+.product-form input[type="password"]:focus {
   border-color: var(--acento);
   background: #353535;
 }
 
-/* Textarea */
-.product-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
+
 
 /* Nota pequeña (tu <small>) */
 .product-form small {
   color: #bdbdbd;
 }
 
-/* Preview de imagen */
-.product-form img {
-  display: block;
-  max-width: 220px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  margin-top: 0.35rem;
-}
+
 
 /* Botón principal reutilizable */
 .btn-admin {

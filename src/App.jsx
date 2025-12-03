@@ -19,34 +19,30 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <Header />
-          {/* <Nav /> */}
-          <main>
+          <Routes>
 
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<ItemListContainer titulo={'Nuestros Productos'} />} />
+              <Route path="/category/:category" element={<ItemListContainer titulo={'Bienvenidos'} />} />
+              <Route path="/detail/:id" element={<ItemDetailContainer />} />
+              <Route path="/carrito" element={<Cart />} />
+            </Route>
 
-            <Routes>
-              <Route element={<MainLayout />}>
-                <Route path="/" element={<ItemListContainer titulo={'Nuestros Productos'} />} />
-                <Route path="/category/:category" element={<ItemListContainer titulo={'Bienvenidos'} />} />
-                <Route path="/detail/:id" element={<ItemDetailContainer />} />
-                <Route path="/carrito" element={<Cart />} />
-              </Route>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<Login />} />
 
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<Login />} />
+              <Route
+                path="alta-productos"
+                element={
+                  <RutaProtegida>
+                    <ProductFormContainer />
+                  </RutaProtegida>
+                }
+              />
+            </Route>
 
-                <Route
-                  path="alta-productos"
-                  element={
-                    <RutaProtegida>
-                      <ProductFormContainer />
-                    </RutaProtegida>
-                  }
-                />
-              </Route>
-              {/* <Route path="/admin" element={<ProductFormContainer />} />      */}
-            </Routes>
+          </Routes>
 
-          </main>
           <Footer />
         </CartProvider>
       </BrowserRouter>

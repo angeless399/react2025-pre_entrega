@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useAuthcontext } from "../../context/AuthContext/UseAuthContext"
 import { Navigate, useNavigate } from "react-router-dom"
 
+import "./login.css"
+
 export const Login = () => {
     const [userForm, setUserForm] = useState({ name: "", password: "" })
     const { user, login } = useAuthcontext()
@@ -29,7 +31,7 @@ export const Login = () => {
     }
 
     return (
-    <form onSubmit={handleSubmit}>
+    <form className="product-form" onSubmit={handleSubmit}>
         <h2>Iniciar sesion</h2>
         <div>
             <label>Usuario</label>
@@ -39,7 +41,7 @@ export const Login = () => {
             <label>Contraseña</label>
             <input type="password" name="password" value={userForm.password} onChange={handleChange} />
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button className="btn-admin" type="submit">Iniciar sesión</button>
     </form>
     )
 
