@@ -12,7 +12,7 @@
             "id": "2",
             "name": "frutillas",
             "price": "3500",
-            "category" : "categoria_2",
+            "category" : "categoria_1",
             "description": "hermosas frutillas",
             "imageUrl" : "/images/frutillas.jpg",
             "stock" : 150

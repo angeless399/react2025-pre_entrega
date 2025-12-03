@@ -3,7 +3,7 @@ import "./Count.css"
 
  //onConfirm es una funcion que estoy pasando por props
 export const Count = ({ onConfirm }) => {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(1)
 
     const increment = () => {
         setCount((prev) => prev + 1)

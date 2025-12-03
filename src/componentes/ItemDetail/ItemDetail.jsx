@@ -5,6 +5,7 @@ import './ItemDetail.css'
 import { useCartContext } from "../../context/CartContext/UseCartContext";
 
 import { Count } from '../Count/Count'
+import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({ detail }) => {
     //    console.log(detail)
@@ -17,7 +18,9 @@ export const ItemDetail = ({ detail }) => {
 
     return (
         <>
+            
             <h1 className="titulo">Detalles y reseñas de {detail.name}</h1>
+             <Link className="btn" to="/"> <span className='volver'> <i className="fa-solid fa-arrow-left-long"></i> Volver </span></Link>
             <section className="productos2">
                 <div className="card2">
                     <div className="detalles">
@@ -77,6 +80,7 @@ export const ItemDetail = ({ detail }) => {
                     </div>
                 </div>
             </section>
+            
         </>
     );
 };

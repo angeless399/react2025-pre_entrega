@@ -6,10 +6,14 @@ import { useCartContext } from "../../context/CartContext/UseCartContext";
 export const Header = () => {
     const { getTotalItems} = useCartContext()
     return <header>
+         <Link to={"/"} className='inicio'>
         <div className="logo">
+           
             <img src={LogoTienda} alt="logoTienda" />
             <p className="marca">LaTienda</p>
+            
         </div>
+        </Link>
 
         <div className="formBuscar">
             <form>
@@ -21,11 +25,12 @@ export const Header = () => {
         <div className="usuario">
             <a href=""><i className="fa-solid fa-heart"></i></a>
             {/* <a href=""><i className="fa-solid fa-cart-shopping"></i></a> */}
-            <Link to={"/carrito"}><i className="fa-solid fa-cart-shopping"></i></Link>
+            <div className='cartIcon'>
             {getTotalItems() > 0 && (
-                <span>{getTotalItems()}</span>
+                 <span className="in-cart">{getTotalItems()}</span>
             )}
-
+            <Link to={"/carrito"}><i className="fa-solid fa-cart-shopping"></i></Link>
+            </div>
             <a href=""><i className="fa-solid fa-user"></i></a>
             {/* <a href="" style="display: none;"><i className="fa-solid fa-right-from-bracket"
                     id="btn-salir"></i></a> CONFLICTO CON EL STYLE EN LINEA */}
